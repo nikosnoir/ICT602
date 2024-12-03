@@ -1,25 +1,21 @@
-
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+import 'model/product.dart';
+import 'model/products_repository.dart';
+import 'supplemental/asymmetric_view.dart';
 
-  // TODO: Make a collection of cards (102)
-  // TODO: Add a variable for Category (104)
+class HomePage extends StatelessWidget {
+  // Adding a variable for Category
+  final Category category;
+
+  // Constructor for HomePage
+  const HomePage({this.category = Category.all, Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // TODO: Return an AsymmetricView (104)
-    // TODO: Pass Category variable to AsymmetricView (104)
-    return Scaffold(
-      appBar: AppBar(title: const Text('SHRINE'),
-      ),
-      // TODO: Add app bar (102)
-      // TODO: Add a grid view (102)
-      body: Center(
-        child: Text('You did it!'),
-      ),
-      // TODO: Set resizeToAvoidBottomInset (101)
-      resizeToAvoidBottomInset: false,
+    // Pass the Category variable to AsymmetricView
+    return AsymmetricView(
+      products: ProductsRepository.loadProducts(category),
     );
   }
 }
