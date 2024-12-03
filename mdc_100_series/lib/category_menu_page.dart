@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shrine/color.dart';
 
 import 'color.dart';
 import 'model/product.dart';
